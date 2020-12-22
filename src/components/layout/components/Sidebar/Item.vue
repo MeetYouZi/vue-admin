@@ -15,13 +15,11 @@ export default {
   render (h, context) {
     const { icon, title } = context.props
     const vnodes = []
-
-    console.log(icon, 'icon')
     if (icon) {
       if (icon.includes('el-icon')) {
         vnodes.push(<i class={icon}/>)
       } else {
-        vnodes.push(<svg-icon icon-class={ icon }/>)
+        // vnodes.push(<svg-icon icon-class={ icon }/>)
       }
     }
 
