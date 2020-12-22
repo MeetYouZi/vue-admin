@@ -6,9 +6,19 @@
 
 <script>
 
+import { getToplist } from '@/api'
 export default {
   name: 'Home',
-  components: {}
+  components: {},
+  methods: {
+
+  },
+  mounted () {
+    let config = { hidden: false }
+    getToplist({ name: 1 }).then(res => {
+
+    })
+  }
 }
 </script>
 

@@ -2,7 +2,7 @@
  * 提示框消息，给services.js使用，services.js需要消息提示框，如果使用element-ui，
  * 会引入一些没必要的element-ui样式和js文件，导致包过大。
  */
-import '../style/msg.css'
+// import '../style/msg.css'
 
 let _index = 5000
 
