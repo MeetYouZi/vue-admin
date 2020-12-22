@@ -6,6 +6,7 @@ import store from './store'
 import 'normalize.css/normalize.css'
 import 'element-ui/lib/theme-chalk/index.css'
 
+import './icons'
 import 'style/index.scss'
 
 Vue.use(ElementUI)

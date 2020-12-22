@@ -6,6 +6,7 @@ import Layout from '@/components/layout'
 const Index = () => import('@/views/index')
 const Home = () => import('@/views/Home')
 const About = () => import('@/views/About')
+const Login = () => import('@/views/login')
 
 Vue.use(VueRouter)
 
@@ -45,6 +46,12 @@ const routes = [
         }
       }
     ]
+  }, {
+    path: '/login',
+    component: Login,
+    meta: {
+      title: 'login'
+    }
   }
 ]
 
