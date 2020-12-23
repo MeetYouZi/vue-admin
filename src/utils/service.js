@@ -63,6 +63,30 @@ class HttpRequest {
     })
     // 响应拦截
     instance.interceptors.response.use(response => {
+      const { data, config } = response
+      if ((!data.success || data.success === 'false') && data.code !== 200) {
+        const msg = data.errorMessage || data.message || '未知错误'
+        const code = data.errorCode || data.code || -1000
+
+        // 未手动配置 隐藏 消息提示时，公共提醒错误
+        if (!config.hidden) {
+          showMessage(`${config.action}失败：${msg}`)
+        }
+
+        // 登录权限跳转
+        if (code === 401) {
+          setTimeout(() => {
+            const url = encodeURIComponent(window.location.href)
+            window.top.location.href = `/login.html?gotoUrl=${url}`
+          }, 1000)
+        }
+
+        // return Promise.reject(new Error('请求失败'))
+        return Promise.reject({
+          code: code,
+          message: msg
+        })
+      }
       return Promise.resolve(response.data)
     },
     error => {
